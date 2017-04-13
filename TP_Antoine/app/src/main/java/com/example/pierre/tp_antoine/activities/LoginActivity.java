@@ -13,8 +13,10 @@ import android.widget.Toast;
 
 import com.example.pierre.tp_antoine.R;
 
+import model.Address;
 import model.User;
 import utils.UserLocationListener;
+import utils.database.DatabaseManager;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -30,7 +32,6 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         prefs  = PreferenceManager.getDefaultSharedPreferences(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -72,13 +73,19 @@ public class LoginActivity extends AppCompatActivity {
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                User currentUser = new User("plems", "yolo", "plems", "yolo", null, null);
+                UserLocationListener.getInstance().setMyLocationListener(LoginActivity.this, currentUser);
 
 
-                    User currentUser = new User("plems", "yolo", "plems", "yolo", null, null);
-                    UserLocationListener.getInstance().setMyLocationListener(LoginActivity.this, currentUser);
+                DatabaseManager manager = new DatabaseManager(LoginActivity.this);
 
-                Toast.makeText(LoginActivity.this, currentUser.getLat().toString() + "," +  currentUser.getLng().toString(), Toast.LENGTH_LONG).show();
+                Address add1 = new Address("", "Rennes", "", 48.1446522,-1.6902588);
+                long id = manager.insertAdressData(add1);
+                Toast.makeText(LoginActivity.this, "ID : " + id, Toast.LENGTH_SHORT).show();
 
+
+                Address address = manager.selectAdressById((long)4);
+                Toast.makeText(LoginActivity.this, address.getCity(), Toast.LENGTH_LONG).show();
             }
         });
 

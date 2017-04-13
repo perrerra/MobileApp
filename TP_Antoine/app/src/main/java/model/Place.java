@@ -7,12 +7,12 @@ package model;
 public class Place {
 
     private String name;
-    private Adress adress;
+    private Address address;
     private int maxPeople;
 
-    public Place(String name, Adress adress, int maxPeople) {
+    public Place(String name, Address address, int maxPeople) {
         this.name = name;
-        this.adress = adress;
+        this.address = address;
         this.maxPeople = maxPeople;
     }
 
@@ -24,12 +24,12 @@ public class Place {
         this.name = name;
     }
 
-    public Adress getAdress() {
-        return adress;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setAdress(Adress adress) {
-        this.adress = adress;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public int getMaxPeople() {

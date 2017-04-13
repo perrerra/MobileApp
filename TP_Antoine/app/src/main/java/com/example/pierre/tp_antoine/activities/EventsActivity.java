@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -24,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import adapter.EventAdapter;
-import model.Adress;
+import model.Address;
 import model.Event;
 import model.EventCat;
 import model.Place;
@@ -33,8 +32,8 @@ public class EventsActivity extends AppCompatActivity {
     ListView mListView;
     EventCat ecJeuxPleinAir = new EventCat("Jeux de plein air");
     EventCat ecSoiree = new EventCat("Soirée");
-    Adress aThabor = new Adress("", "Rennes", "", 48.1446522,-1.6902588);
-    Adress aMalibu = new Adress("", "Ibiza", "", 34.0293977,-118.8472586);
+    Address aThabor = new Address("", "Rennes", "", 48.1446522,-1.6902588);
+    Address aMalibu = new Address("", "Ibiza", "", 34.0293977,-118.8472586);
     Place pThabor = new Place("Thabor", aThabor, 1000);
     Place pMalibu= new Place("Malibu", aMalibu, 200);
 

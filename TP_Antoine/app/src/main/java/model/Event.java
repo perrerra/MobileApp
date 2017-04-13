@@ -1,7 +1,11 @@
 package model;
 
+import android.provider.BaseColumns;
+
 import java.util.ArrayList;
 import java.util.Date;
+
+import model.base.EntityBase;
 
 /**
  * Created by Pierre on 12/04/2017.
@@ -81,4 +85,26 @@ public class Event {
     public void setCat(EventCat cat) {
         this.cat = cat;
     }
+
+    public static class EventEntry implements BaseColumns {
+        public static final String TABLE_NAME = "event";
+        public static final String COLUMN_NAME_NAME = "name";
+        public static final String COLUMN_NAME_START_DATE = "startDate";
+        public static final String COLUMN_NAME_END_DATE = "endDate";
+        public static final String COLUMN_NAME_PLACE_ID = "placeID";
+        public static final String COLUMN_NAME_EVENT_CAT_ID= "eventCatID";
+
+        public static final String SQL_CREATE_ENTRIES =
+                "CREATE TABLE " + Event.EventEntry.TABLE_NAME + " (" +
+                        EntityBase.EntityBaseEntry.COLUMN_NAME_ID + " INTEGER PRIMARY KEY," +
+                        Event.EventEntry.COLUMN_NAME_NAME + " TEXT," +
+                        Event.EventEntry.COLUMN_NAME_START_DATE + " DATE," +
+                        Event.EventEntry.COLUMN_NAME_END_DATE + " DATE," +
+                        Event.EventEntry.COLUMN_NAME_PLACE_ID + " INTEGER," +
+                        Event.EventEntry.COLUMN_NAME_EVENT_CAT_ID + " INTEGER,";
+
+        public static final String SQL_DELETE_ENTRIES =
+                "DROP TABLE IF EXISTS " + Event.EventEntry.TABLE_NAME + ";";
+    }
+
 }

@@ -48,7 +48,7 @@ public class EventAdapter extends ArrayAdapter<Event> {
         viewHolder.title.setText(event.getName());
         viewHolder.categorie.setText(event.getCat().getName());
         viewHolder.startDate.setText(event.getStartDate().toString());
-        viewHolder.city.setText(event.getPlace().getAdress().getCity());
+        viewHolder.city.setText(event.getPlace().getAddress().getCity());
 
         //nous renvoyons notre vue à l'adapter, afin qu'il l'affiche
         //et qu'il puisse la mettre à recycler lorsqu'elle sera sortie de l'écran
